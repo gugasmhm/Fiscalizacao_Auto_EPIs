@@ -1,0 +1,117 @@
+Boa 👷📷, vamos montar o **modelo de dataset** para treinar o YOLO detectar uso (ou ausência) de EPIs.
+
+---
+
+# 📂 Estrutura do dataset para YOLO
+
+O YOLO (v5, v8, etc.) trabalha com **imagens** + **arquivos de anotação** em formato `.txt`, onde cada linha representa um objeto na imagem.
+
+```
+dataset_epi/
+│── images/
+│   ├── train/        # imagens de treino
+│   ├── val/          # imagens de validação
+│   └── test/         # imagens de teste (opcional)
+│
+│── labels/
+│   ├── train/        # anotações correspondentes às imagens de treino
+│   ├── val/          # anotações de validação
+│   └── test/         # anotações de teste
+│
+└── data.yaml         # configuração do dataset
+```
+
+---
+
+# 📌 Exemplo do `data.yaml`
+
+Esse arquivo diz ao YOLO onde estão as imagens e quais classes existem.
+
+```yaml
+train: ./images/train
+val: ./images/val
+test: ./images/test
+
+nc: 6  # número de classes
+names: ["capacete", "sem_capacete", "oculos", "sem_oculos", "colete", "sem_colete"]
+```
+
+---
+
+# 📌 Formato das anotações (`labels/*.txt`)
+
+Cada arquivo `.txt` tem o **mesmo nome da imagem** e contém as caixas delimitadoras.
+
+Formato (YOLO):
+
+```
+<class_id> <x_center> <y_center> <width> <height>
+```
+
+* `class_id` → índice da classe (ex: 0 = capacete, 1 = sem\_capacete, etc.)
+* Coordenadas **normalizadas entre 0 e 1** em relação à largura/altura da imagem.
+
+---
+
+## Exemplo
+
+Imagem: `trabalhador1.jpg`
+Anotação: `trabalhador1.txt`
+
+```
+0 0.52 0.40 0.20 0.35   # capacete
+2 0.50 0.70 0.25 0.40   # oculos
+4 0.55 0.85 0.30 0.40   # colete
+```
+
+Imagem: `trabalhador2.jpg` (sem capacete e sem óculos)
+Anotação: `trabalhador2.txt`
+
+```
+1 0.52 0.40 0.20 0.35   # sem_capacete
+3 0.50 0.70 0.25 0.40   # sem_oculos
+4 0.55 0.85 0.30 0.40   # colete
+```
+
+---
+
+# 📌 Classes sugeridas para EPI
+
+| ID | Classe        |
+| -- | ------------- |
+| 0  | capacete      |
+| 1  | sem\_capacete |
+| 2  | oculos        |
+| 3  | sem\_oculos   |
+| 4  | colete        |
+| 5  | sem\_colete   |
+
+---
+
+# 📜 Anotando imagens
+
+Você pode usar ferramentas para marcar os objetos:
+
+* [LabelImg](https://github.com/heartexlabs/labelImg) (desktop)
+* [Roboflow](https://roboflow.com/) (online, muito prático)
+* [makesense.ai](https://www.makesense.ai/) (online e grátis)
+
+Essas ferramentas permitem desenhar **caixas ao redor dos EPIs** e exportar direto no formato YOLO.
+
+---
+
+# 🚀 Fluxo resumido para criar dataset
+
+1. Coletar imagens de trabalhadores em obras (com e sem EPI).
+2. Anotar manualmente usando **LabelImg/Roboflow**.
+3. Exportar no formato YOLO.
+4. Organizar no diretório `dataset_epi/`.
+5. Treinar YOLO com:
+
+   ```bash
+   python train.py --img 640 --batch 16 --epochs 50 --data data.yaml --weights yolov5n.pt
+   ```
+
+---
+
+👉 Quer que eu já monte um **exemplo de 5 imagens sintéticas anotadas** (mock dataset) para você ter uma base inicial sem precisar coletar fotos reais?

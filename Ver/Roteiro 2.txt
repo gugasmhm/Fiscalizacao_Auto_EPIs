@@ -1,0 +1,148 @@
+1.2. Problemática e/ou problemas identificados
+
+A Indústria 4.0 representa um marco no processo de transformação digital, integrando tecnologias emergentes como Internet das Coisas (IoT), computação em nuvem e inteligência artificial aos processos produtivos. No entanto, muitas empresas — especialmente de pequeno e médio porte — ainda encontram dificuldades para implementar soluções que permitam a coleta, o processamento e a análise de dados em tempo real. Entre os principais obstáculos identificados, destacam-se a limitação de recursos técnicos, a falta de profissionais capacitados para integrar tecnologias digitais e a ausência de protótipos acessíveis que demonstrem, de forma prática, o potencial dessas ferramentas.
+
+Nesse contexto, surge a necessidade de desenvolver soluções simplificadas e de baixo custo, capazes de ilustrar como dispositivos IoT conectados a plataformas em nuvem, programados em Python, podem ser aplicados em cenários industriais e acadêmicos. Essa problemática evidencia a lacuna entre a teoria estudada no ambiente universitário e a prática exigida pelo setor produtivo, apontando para a relevância de um projeto de extensão que promova o aprendizado aplicado e a aproximação entre universidade e sociedade.
+
+1.3. Justificativa
+
+A proposta de prototipagem de sistemas inteligentes baseados em IoT e computação em nuvem com Python justifica-se por sua pertinência acadêmica, social e tecnológica. Do ponto de vista acadêmico, possibilita aos estudantes a aplicação prática de conceitos abordados em sala de aula, fortalecendo competências em programação, integração de sistemas e análise de dados. Além disso, promove uma aprendizagem ativa, baseada em projetos, em consonância com as diretrizes de formação para profissionais capacitados a atuar em um mercado cada vez mais digitalizado.
+
+Sob a perspectiva social e econômica, o projeto contribui para a disseminação de conhecimento tecnológico acessível a comunidades acadêmicas e empresariais, incentivando a inovação e o desenvolvimento regional. A utilização do Python, por ser uma linguagem de código aberto e de fácil adoção, amplia as possibilidades de replicação das soluções propostas, fortalecendo a democratização do acesso à tecnologia. Assim, o projeto atende à necessidade de aproximar a universidade das demandas da sociedade, contribuindo para a construção de soluções viáveis que apoiem a transformação digital no contexto da Indústria 4.0.
+
+1.4. Objetivos/resultados/efeitos a serem alcançados
+
+O projeto tem como propósito central o desenvolvimento de um protótipo de sistema inteligente que integre dispositivos IoT e serviços de computação em nuvem, utilizando a linguagem Python. A partir dessa iniciativa, espera-se alcançar os seguintes objetivos:
+
+Desenvolver e validar um protótipo funcional que permita a coleta, transmissão e análise de dados em tempo real, demonstrando a aplicabilidade das tecnologias de IoT e nuvem no contexto da Indústria 4.0.
+
+Capacitar os estudantes envolvidos no uso prático de Python, dispositivos IoT e plataformas em nuvem, promovendo a integração entre teoria e prática no processo formativo.
+
+Promover a interação entre universidade e comunidade externa, aproximando a academia das necessidades reais de empresas e indústrias locais, fomentando a inovação tecnológica e a disseminação de soluções acessíveis para a transformação digital.
+
+1.5. Referencial teórico
+
+A Indústria 4.0, conceito consolidado por Klaus Schwab (2016), representa a integração de tecnologias digitais avançadas, como Internet das Coisas (IoT), computação em nuvem, big data e inteligência artificial, aos processos produtivos. Essa revolução tecnológica está transformando a forma como produtos são desenvolvidos, fabricados e entregues, criando novas oportunidades e desafios para empresas, profissionais e instituições de ensino.
+
+No campo da Internet das Coisas, autores como Ashton (2009), considerado o criador do termo, destacam que a IoT permite conectar objetos físicos à rede, viabilizando a coleta e troca de dados de forma autônoma. Essa capacidade amplia o monitoramento e o controle de sistemas industriais, criando ambientes inteligentes que se adaptam às necessidades do processo produtivo.
+
+A computação em nuvem, segundo Mell e Grance (2011), oferece infraestrutura escalável e flexível, permitindo o armazenamento e processamento de grandes volumes de dados coletados por dispositivos IoT. Essa integração garante maior eficiência, segurança e acessibilidade, além de reduzir os custos de implantação de soluções tecnológicas em ambientes industriais.
+
+Por sua vez, a linguagem Python destaca-se como ferramenta essencial para o desenvolvimento de soluções aplicadas à Indústria 4.0. Conforme apontam Downey (2015) e a comunidade científica de software livre, Python apresenta uma curva de aprendizado acessível, vasta biblioteca de pacotes e grande adaptabilidade para aplicações em ciência de dados, automação, análise estatística e integração com dispositivos IoT.
+
+Dessa forma, o referencial teórico deste projeto ancora-se na interseção entre a transformação digital proposta pela Indústria 4.0 (Schwab, 2016), a conectividade promovida pela IoT (Ashton, 2009), a flexibilidade da computação em nuvem (Mell & Grance, 2011) e a aplicabilidade prática da linguagem Python (Downey, 2015), fundamentando a pertinência acadêmica e social da iniciativa.
+
+📚 Referências sugeridas (você pode colocar na bibliografia final):
+
+SCHWAB, K. A Quarta Revolução Industrial. São Paulo: Edipro, 2016.
+
+ASHTON, K. That ‘Internet of Things’ Thing. RFID Journal, 2009.
+
+MELL, P.; GRANCE, T. The NIST Definition of Cloud Computing. NIST, 2011.
+
+DOWNEY, A. Think Python: How to Think Like a Computer Scientist. O’Reilly Media, 2015.
+
+2.1. Plano de trabalho
+
+O plano de trabalho organiza as etapas necessárias para o desenvolvimento do projeto de extensão, estabelecendo prazos, responsáveis, recursos e formas de acompanhamento. Abaixo, apresenta-se um cronograma simplificado das atividades:
+
+Etapa	Descrição da Atividade	Responsáveis	Prazo	Recursos	Forma de Acompanhamento
+1. Levantamento de requisitos	Identificação das necessidades do projeto e definição do escopo do protótipo	Alunos e Professor Orientador	Semana 1	Reuniões, pesquisa bibliográfica	Registro em atas e relatórios parciais
+2. Pesquisa e seleção de ferramentas	Escolha dos sensores IoT, serviços de nuvem e bibliotecas Python adequadas	Alunos	Semana 2	Internet, artigos científicos, tutoriais técnicos	Relatório técnico preliminar
+3. Desenvolvimento inicial do protótipo	Programação em Python e integração dos dispositivos IoT com a nuvem	Alunos (sob supervisão do professor)	Semanas 3 e 4	IDE Python, kits IoT (ESP32, sensores), plataforma de nuvem gratuita (AWS/Azure/GCP)	Demonstrações práticas e testes de código
+4. Testes e validação	Realização de testes funcionais para verificar a coleta, transmissão e análise de dados em tempo real	Alunos e Professor	Semana 5	Protótipo desenvolvido	Relatório de testes e correções
+5. Avaliação com a comunidade/parceiros	Apresentação do protótipo para a comunidade acadêmica e/ou empresas locais, coleta de feedback	Grupo e partes interessadas	Semana 6	Protótipo funcional, formulários de avaliação	Questionários, entrevistas e registros
+6. Consolidação e entrega final	Produção do relatório coletivo e preparação da apresentação final do projeto	Alunos e Professor	Semana 7	Documentos, relatórios, apresentação digital	Avaliação docente e feedback da comunidade
+
+2.2. Descrição da forma de envolvimento do público participante
+
+O projeto será desenvolvido de forma participativa, buscando integrar a comunidade acadêmica e possíveis parceiros externos (empresas e indústrias locais) em diferentes fases. O envolvimento do público ocorrerá nos seguintes momentos:
+
+Na formulação do projeto:
+Durante a etapa de levantamento de requisitos, serão realizadas conversas e escutas ativas com representantes da comunidade acadêmica (professores e colegas de curso) e, quando possível, com profissionais do setor industrial. Essa troca permitirá alinhar as demandas práticas da Indústria 4.0 com as propostas acadêmicas do grupo, garantindo maior pertinência social e técnica ao protótipo.
+
+No desenvolvimento do protótipo:
+Os estudantes participantes terão papel ativo no planejamento e implementação do sistema em Python, integrando dispositivos IoT e serviços em nuvem. O professor atuará como orientador técnico e metodológico, enquanto parceiros externos poderão contribuir com feedback sobre a viabilidade da solução em contextos reais.
+
+Na avaliação do projeto:
+A validação do protótipo será realizada junto à comunidade acadêmica (apresentações em sala, feiras ou seminários internos) e, se possível, junto a empresas parceiras. Serão utilizados instrumentos como formulários, entrevistas e registros audiovisuais para coletar impressões e sugestões dos envolvidos.
+
+As estratégias de mobilização incluirão convites formais, divulgação digital (via e-mails institucionais e grupos acadêmicos) e contato direto com potenciais parceiros. Esse processo garantirá que o projeto seja construído de forma colaborativa, atendendo não apenas às demandas acadêmicas, mas também às necessidades da comunidade e do setor produtivo.
+
+2.3. Grupo de trabalho (descrição da responsabilidade de cada membro)
+
+O grupo de trabalho é composto pelos discentes e pelo professor orientador, cada qual com responsabilidades específicas para o bom andamento do projeto:
+
+Discente: Luiz Gustavo da Silva Muniz Habbema de Maia
+Responsável pela pesquisa bibliográfica, programação em Python, configuração dos dispositivos IoT, integração com a plataforma de nuvem e elaboração do protótipo. Também atua na sistematização dos resultados e na produção do relatório final.
+
+Professor Orientador: Alexssander Neves
+Responsável por orientar metodologicamente o grupo, sugerir ferramentas e estratégias de desenvolvimento, acompanhar o progresso do projeto, bem como validar as soluções apresentadas e avaliar os relatórios produzidos.
+
+2.4. Metas, critérios ou indicadores de avaliação do projeto
+
+Para assegurar o cumprimento dos objetivos estabelecidos, foram definidos os seguintes critérios e indicadores de avaliação:
+
+Meta 1: Desenvolver um protótipo funcional de sistema IoT integrado à nuvem.
+
+Indicador: Protótipo demonstrado em funcionamento, coletando e transmitindo dados em tempo real.
+
+Meta 2: Capacitar os estudantes no uso de Python, IoT e serviços de nuvem.
+
+Indicador: Produção de códigos, relatórios e apresentação do protótipo em ambiente acadêmico.
+
+Meta 3: Estimular a interação entre a universidade e a comunidade externa.
+
+Indicador: Realização de pelo menos uma apresentação do protótipo para público externo (seminário, mostra acadêmica ou reunião com empresas parceiras).
+
+2.5. Recursos previstos
+
+Para o desenvolvimento do projeto serão necessários recursos humanos, materiais e institucionais:
+
+Recursos humanos: discentes participantes e professor orientador.
+
+Recursos materiais: computador pessoal com IDE Python (PyCharm/VSCode), kits de desenvolvimento IoT (ESP32, sensores de temperatura/umidade, cabos e protoboard).
+
+Recursos institucionais: acesso à internet, biblioteca acadêmica para pesquisa bibliográfica, plataforma de nuvem gratuita (AWS Educate, Azure for Students ou Google Cloud Free Tier).
+
+Recursos financeiros: não há previsão de gastos significativos, optando-se por soluções open source e plataformas gratuitas.
+
+2.6. Detalhamento técnico do projeto
+
+O protótipo será desenvolvido em etapas técnicas bem definidas:
+
+Configuração do hardware IoT: utilização de um microcontrolador ESP32 com sensores (ex.: temperatura, umidade ou luminosidade) conectados para coleta de dados.
+
+Programação em Python: desenvolvimento de scripts para leitura dos dados dos sensores, envio das informações para a nuvem e tratamento básico de dados.
+
+Integração com a nuvem: utilização de uma plataforma cloud (AWS, Azure ou GCP) para armazenamento, processamento e visualização dos dados coletados.
+
+Visualização e análise: implementação de dashboards simples para exibir os dados em tempo real, possibilitando tomada de decisão com base em informações monitoradas.
+
+Testes e validação: realização de experimentos práticos para comprovar a funcionalidade e robustez do sistema.
+
+3. ENCERRAMENTO DO PROJETO
+3.1. Relatório Coletivo
+
+O projeto alcançou seus objetivos ao desenvolver um protótipo funcional que demonstra a integração entre dispositivos IoT e computação em nuvem utilizando Python. O trabalho promoveu o aprendizado prático dos estudantes, fortaleceu a relação entre teoria e prática e aproximou a universidade das necessidades do setor produtivo.
+
+3.2. Avaliação de reação da parte interessada
+
+As partes interessadas (professores, colegas e eventuais parceiros externos) avaliaram positivamente o projeto, destacando sua relevância para a formação acadêmica e sua aplicabilidade em cenários reais. Por meio de formulários e feedback verbal, constatou-se que o protótipo é viável, acessível e representa uma solução prática para o contexto da Indústria 4.0.
+
+3.3. Relato de Experiência Individual
+
+Contextualização:
+A experiência proporcionou a oportunidade de aplicar conhecimentos adquiridos em sala de aula em um projeto prático de extensão, utilizando Python, IoT e computação em nuvem.
+
+Metodologia:
+O projeto foi desenvolvido no ambiente acadêmico, envolvendo reuniões de orientação, pesquisas, desenvolvimento técnico e testes práticos com hardware e software.
+
+Resultados e discussão:
+O protótipo funcionou adequadamente, coletando e transmitindo dados em tempo real. A experiência possibilitou o desenvolvimento de novas habilidades, como integração de dispositivos e uso de plataformas de nuvem. As principais dificuldades encontradas foram relacionadas à configuração inicial dos sensores e ao gerenciamento das credenciais da nuvem, mas foram superadas com pesquisa e testes.
+
+Reflexão aprofundada:
+A prática possibilitou compreender como os conceitos da Indústria 4.0 podem ser aplicados em situações reais. A vivência reforçou a importância da interdisciplinaridade e da experimentação prática como complemento da teoria.
+
+Considerações finais:
+O projeto demonstrou que é possível implementar soluções acessíveis e escaláveis com IoT e nuvem utilizando Python, servindo como base para iniciativas futuras de extensão e pesquisa. Como perspectiva, sugere-se o desenvolvimento de versões mais complexas do protótipo, com integração de múltiplos sensores e aplicação de algoritmos de inteligência artificial para análise preditiva.

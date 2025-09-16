@@ -1,0 +1,5 @@
+Resumo
+
+O projeto de extensão “Prototipagem de Sistemas Inteligentes Baseados em IoT e Computação em Nuvem com Python na Indústria 4.0” tem como objetivo desenvolver e aplicar soluções inovadoras que integrem dispositivos inteligentes conectados à Internet das Coisas (IoT) com plataformas de computação em nuvem, utilizando a linguagem de programação Python como ferramenta principal. A iniciativa busca promover a prototipagem de sistemas capazes de coletar, transmitir e analisar dados em tempo real, favorecendo a automação, o monitoramento remoto e a tomada de decisão inteligente no contexto da Indústria 4.0.
+
+O projeto envolve a participação ativa de estudantes, professores e parceiros institucionais, permitindo a consolidação de competências técnicas em programação, integração de sistemas, análise de dados e inovação tecnológica. Além disso, pretende-se aproximar a universidade das demandas do setor produtivo, contribuindo para a transformação digital e o fortalecimento da competitividade industrial regional.
