@@ -2,3 +2,7 @@ opencv-python
 torch
 torchvision
 pandas
+playsound
+tensorflow
+numpy
+opencv-python-headless
