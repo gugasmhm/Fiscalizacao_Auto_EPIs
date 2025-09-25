@@ -1,3 +1,4 @@
 Uso do Cascade
 https://github.com/LucasGoomes/Face-Detection/blob/main/Face_Detection.ipynb
 https://github.com/Frankl1sales/OpenCV_Face_Detection
+https://github.com/MariaEduardaDeAzevedo/detector-de-mascaras
