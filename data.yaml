@@ -1,5 +1,0 @@
-train: ./images/train
-val: ./images/val
-
-nc: 6
-names: ["capacete", "sem_capacete", "oculos", "sem_oculos", "colete", "sem_colete"]
