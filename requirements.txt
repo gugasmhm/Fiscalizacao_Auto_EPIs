@@ -1,10 +1,21 @@
-torch==2.0.1
-opencv-python==4.10.0.84
-numpy==1.26.4
+# Machine Learning / IA
+torch>=2.4.0
+
+# Visão computacional
+opencv-python>=4.10.0.84
 imutils==0.5.4
-requests==2.31.0
-pandas==2.2.3
-scikit-learn==1.5.2
-joblib==1.4.2
-email-validator==2.2.0
+
+# Processamento numérico e científico
+numpy>=2.1.2
+pandas>=2.2.3
+scikit-learn>=1.5.2
+joblib>=1.4.2
+
+# Comunicação e validação
+requests>=2.32.3
+email-validator>=2.2.0
 secure-smtplib
+
+# Observação:
+# - SQLite já vem com o Python.
+# - secure-smtplib não tem versão fixa, pois é parte da stdlib ou wrapper leve.
