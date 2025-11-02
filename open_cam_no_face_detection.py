@@ -30,6 +30,8 @@ label = {
     1: "Com capacete"
 }
 
+print("✅ Sistema iniciado. Pressione Q para sair.")
+
 # Abrindo a webcam...
 while True:
     status, frame = cam.read()  # Lendo a imagem e extraindo frame
@@ -44,7 +46,7 @@ while True:
     size = 200
     pt1 = ((width // 2) - size // 2, (height // 2) - size // 2)
     pt2 = ((width // 2) + size // 2, (height // 2) + size // 2)
-    region = frame[pt1[1] : pt2[1], pt1[0] : pt2[0]]
+    region = frame[pt1[1]: pt2[1], pt1[0]: pt2[0]]
 
     # proteger contra frames pequenos
     if region.size == 0:
@@ -63,9 +65,10 @@ while True:
     cv.putText(frame, classification, (10, 20), cv.FONT_HERSHEY_SIMPLEX, 0.6, (255, 0, 0), 2, cv.LINE_AA)
     cv.rectangle(frame, pt1, pt2, color, thickness=3)
 
-    # opcional: salvar imagem quando detectar "Sem capacete"
+    # Envia alerta se estiver sem capacete
     if pred == 0:
-        functions.salvar_registro(frame)
+        caminho_img = functions.salvar_registro(frame)
+        functions.enviar_email_alerta(caminho_img)
 
     cv.imshow("Cam - EPI Capacete (Região fixa)", frame)
 

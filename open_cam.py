@@ -65,14 +65,15 @@ while True:
             cv.putText(frame, classification, (x, y - 10),
                        cv.FONT_HERSHEY_SIMPLEX, 0.7, color, 2)
 
-            # Somente salva se detectar "Sem capacete" e respeitar intervalo mínimo
+            # Somente salva e envia se detectar "Sem capacete" e respeitar intervalo mínimo
             agora = time.time()
             if pred == 0 and (agora - ultimo_salvamento > intervalo_minimo):
-                functions.salvar_registro(frame)
+                caminho_img = functions.salvar_registro(frame)
+                functions.enviar_email_alerta(caminho_img)
                 ultimo_salvamento = agora
 
-    # Se nenhuma face for detectada, apenas exibe o vídeo sem log
-    cv.imshow("Monitoramento - EPI Capacete", frame)
+    # Exibe o vídeo
+    cv.imshow("Monitoramento - EPI Capacete (Face Detection)", frame)
 
 cam.release()
 cv.destroyAllWindows()

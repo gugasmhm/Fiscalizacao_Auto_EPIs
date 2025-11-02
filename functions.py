@@ -8,6 +8,8 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import classification_report, accuracy_score
 import warnings
 from datetime import datetime
+import smtplib
+from email.message import EmailMessage
 
 # Tamanho fixo para todas as imagens (ajuste se quiser)
 IMG_SIZE = (160, 160)
@@ -61,7 +63,7 @@ def split_dataset(df, test_size=0.3, random_state=42):
     y = list(df["ALVO"])
 
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=test_size, random_state=random_state, stratify=y if len(set(y))>1 else None
+        X, y, test_size=test_size, random_state=random_state, stratify=y if len(set(y)) > 1 else None
     )
 
     # converter para numpy arrays com dtype float (requisito para PCA)
@@ -114,9 +116,39 @@ def evaluate_model(model, pca, X_test, y_test):
 def salvar_registro(frame):
     """
     Salva o frame em registros/ com timestamp (por exemplo ao detectar violação).
+    Retorna o caminho da imagem salva.
     """
     os.makedirs("registros", exist_ok=True)
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     caminho = f"registros/violacao_{timestamp}.jpg"
     cv.imwrite(caminho, frame)
     print(f"⚠️ Imagem salva: {caminho}")
+    return caminho
+
+
+def enviar_email_alerta(caminho_imagem):
+    """
+    Envia um e-mail para projetoepiestacio@gmail.com com a imagem da violação em anexo.
+    É necessário usar uma senha de app gerada no Google.
+    """
+    remetente = "projetoepiestacio@gmail.com"
+    senha = "pddy tocq fryj xfgv"
+    destinatario = "projetoepiestacio@gmail.com"
+
+    msg = EmailMessage()
+    msg["Subject"] = "⚠️ Alerta: Pessoa sem capacete detectada"
+    msg["From"] = remetente
+    msg["To"] = destinatario
+    msg.set_content("Foi detectada uma pessoa sem capacete. A imagem está em anexo.")
+
+    try:
+        with open(caminho_imagem, "rb") as f:
+            img_data = f.read()
+            msg.add_attachment(img_data, maintype="image", subtype="jpeg", filename=os.path.basename(caminho_imagem))
+
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
+            smtp.login(remetente, senha)
+            smtp.send_message(msg)
+            print(f"📧 E-mail enviado com sucesso para {destinatario} com anexo {os.path.basename(caminho_imagem)}.")
+    except Exception as e:
+        print(f"❌ Erro ao enviar e-mail: {e}")
