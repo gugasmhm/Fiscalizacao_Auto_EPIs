@@ -30,7 +30,7 @@ label = {
     1: "Com capacete"
 }
 
-print("✅ Sistema iniciado. Pressione Q para sair.")
+print("Sistema iniciado. Pressione Q para sair.")
 
 # Abrindo a webcam...
 while True:
@@ -74,3 +74,4 @@ while True:
 
 cam.release()
 cv.destroyAllWindows()
+
