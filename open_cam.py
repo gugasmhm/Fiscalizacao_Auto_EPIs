@@ -33,7 +33,7 @@ label = {0: "Sem capacete", 1: "Com capacete"}
 ultimo_salvamento = 0
 intervalo_minimo = 5  # segundos entre salvamentos
 
-print("✅ Sistema iniciado. Pressione Q para sair.")
+print("Sistema iniciado. Pressione Q para sair.")
 
 while True:
     status, frame = cam.read()
@@ -77,3 +77,4 @@ while True:
 
 cam.release()
 cv.destroyAllWindows()
+
