@@ -109,7 +109,7 @@ def evaluate_model(model, pca, X_test, y_test):
     acc = accuracy_score(y_test, preds)
     print("\n📊 --- Relatório de Classificação ---")
     print(classification_report(y_test, preds, target_names=["Sem capacete", "Com capacete"]))
-    print(f"✅ Acurácia do modelo: {acc * 100:.2f}%")
+    print(f"Acurácia do modelo: {acc * 100:.2f}%")
     return acc
 
 
@@ -122,7 +122,7 @@ def salvar_registro(frame):
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     caminho = f"registros/violacao_{timestamp}.jpg"
     cv.imwrite(caminho, frame)
-    print(f"⚠️ Imagem salva: {caminho}")
+    print(f" Imagem salva: {caminho}")
     return caminho
 
 
@@ -136,7 +136,7 @@ def enviar_email_alerta(caminho_imagem):
     destinatario = "projetoepiestacio@gmail.com"
 
     msg = EmailMessage()
-    msg["Subject"] = "⚠️ Alerta: Pessoa sem capacete detectada"
+    msg["Subject"] = " Alerta: Pessoa sem capacete detectada"
     msg["From"] = remetente
     msg["To"] = destinatario
     msg.set_content("Foi detectada uma pessoa sem capacete. A imagem está em anexo.")
@@ -152,3 +152,4 @@ def enviar_email_alerta(caminho_imagem):
             print(f"📧 E-mail enviado com sucesso para {destinatario} com anexo {os.path.basename(caminho_imagem)}.")
     except Exception as e:
         print(f"❌ Erro ao enviar e-mail: {e}")
+
