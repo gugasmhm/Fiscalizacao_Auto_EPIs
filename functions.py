@@ -151,5 +151,6 @@ def enviar_email_alerta(caminho_imagem):
             smtp.send_message(msg)
             print(f"📧 E-mail enviado com sucesso para {destinatario} com anexo {os.path.basename(caminho_imagem)}.")
     except Exception as e:
-        print(f"❌ Erro ao enviar e-mail: {e}")
+        print(f"Erro ao enviar e-mail: {e}")
+
 
