@@ -66,4 +66,5 @@ while True:
 
 cam.release()
 cv.destroyAllWindows()
-print("🛑 Sistema encerrado.")
+print("Sistema encerrado.")
+
