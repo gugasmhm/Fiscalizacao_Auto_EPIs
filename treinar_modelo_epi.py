@@ -1,7 +1,7 @@
 import functions
 import joblib
 
-print("🔧 Iniciando treinamento do modelo de EPI...")
+print("Iniciando treinamento do modelo de EPI...")
 
 # Carregar dataset
 df = functions.load_dataframe()
@@ -22,4 +22,5 @@ functions.evaluate_model(modelo, pca, X_test, y_test)
 # Salvar modelos
 joblib.dump(modelo, "modelo_epi.pkl")
 joblib.dump(pca, "pca_epi.pkl")
-print("✅ Modelo e PCA salvos com sucesso!")
+print("Modelo e PCA salvos com sucesso!")
+
