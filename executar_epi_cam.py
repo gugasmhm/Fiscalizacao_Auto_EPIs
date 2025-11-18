@@ -17,8 +17,11 @@ face_detector = cv.CascadeClassifier(cv.data.haarcascades + file_name)
 # Dicionário de rótulos
 label = {0: "Sem capacete", 1: "Com capacete"}
 
+# Variáveis de Controle de Alerta
 ultimo_salvamento = 0
-intervalo_minimo = 5  # segundos entre alertas
+intervalo_minimo = 5  # segundos entre alertas (E-MAILS)
+tempo_confirma_violacao = 3.0 # Tempo que a violação deve durar (em segundos)
+inicio_violacao = 0 # Timestamp do início da detecção "Sem capacete" (pred=0)
 
 print("🎥 Sistema de detecção de EPI iniciado (pressione Q para sair)")
 
@@ -32,6 +35,9 @@ while True:
 
     gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
     faces = face_detector.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5)
+    
+    # Flag para saber se alguma face "Sem Capacete" (pred=0) foi detectada neste frame
+    violacao_detectada_neste_frame = False
 
     if len(faces) > 0:
         for (x, y, w, h) in faces:
@@ -55,16 +61,42 @@ while True:
             cv.rectangle(frame, (x, y), (x+w, y+h), color, 2)
             cv.putText(frame, texto, (x, y-10), cv.FONT_HERSHEY_SIMPLEX, 0.7, color, 2)
 
-            # Registrar se estiver sem capacete
-            agora = time.time()
-            if pred == 0 and (agora - ultimo_salvamento > intervalo_minimo):
-                caminho = functions.salvar_registro(frame)
-                functions.enviar_email_alerta(caminho)
-                ultimo_salvamento = agora
+            # Marcar violação
+            if pred == 0:
+                violacao_detectada_neste_frame = True
+    
+    # ============================
+    # 🚨 Lógica de Confirmação de Violação
+    # ============================
+    agora = time.time()
+    
+    if violacao_detectada_neste_frame:
+        # 1. Se a violação é nova, marca o início
+        if inicio_violacao == 0:
+            inicio_violacao = agora
+            
+        # 2. Verifica se a violação durou o tempo de confirmação E se o intervalo mínimo passou
+        tempo_decorrido = agora - inicio_violacao
+        
+        if (tempo_decorrido >= tempo_confirma_violacao) and \
+           (agora - ultimo_salvamento > intervalo_minimo):
+            
+            # A violação é real e persistente (>= 6s) e já passou o tempo mínimo para novo e-mail.
+            caminho = functions.salvar_registro(frame)
+            print(f"[ALERTA CONFIRMADO] Sem capacete por {tempo_decorrido:.2f}s! Imagem salva em: {caminho}")
+            functions.enviar_email_alerta(caminho)
+            
+            # Resetar contadores
+            ultimo_salvamento = agora
+            inicio_violacao = 0
+            
+    else:
+        # Se NENHUM rosto detectado neste frame está sem capacete, reseta o cronômetro
+        inicio_violacao = 0
+
 
     cv.imshow("Monitoramento de EPI - Capacete", frame)
 
 cam.release()
 cv.destroyAllWindows()
 print("Sistema encerrado.")
-
